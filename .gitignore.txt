@@ -1,0 +1,4 @@
+.idea/
+.pytest_cashe
+*._pycache_/
+env/
