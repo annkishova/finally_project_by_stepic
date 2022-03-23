@@ -12,8 +12,8 @@ class LoginPageLocators():
     Register_confirm_password = (By.CSS_SELECTOR, "id_registration-password21")
 
 class ProductPageLocators():
-    Product_price = (By.CSS_SELECTOR, ".product_main h1")
-    Product_name = (By.CSS_SELECTOR, ".price_color")
+    Product_price = (By.CSS_SELECTOR, ".product_main .price_color")
+    Product_name = (By.CSS_SELECTOR, ".product_main h1")
     Basket = (By.CSS_SELECTOR, "#add_to_basket_form button")
-    Message_adding = (By.CSS_SELECTOR, "div.alertinner")
+    Message_adding = (By.CSS_SELECTOR, ".alertinner strong")
     Basket_total = (By.CSS_SELECTOR, ".alert-info .alertinner strong")
