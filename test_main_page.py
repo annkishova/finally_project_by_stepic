@@ -1,6 +1,7 @@
 from selenium import webdriver
 from .pages.main_page import MainPage
 from .pages.login_page import LoginPage
+from .pages.basket_page import BasketPage
 
  
 def test_guest_can_go_to_login_page(browser):
@@ -28,3 +29,15 @@ def test_should_be_register_form(browser):
     page = LoginPage(browser,link)
     page.open()
     page.should_be_register_form()
+
+    #
+def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
+    #Гость открывает главную страницу 
+    link = "http://selenium1py.pythonanywhere.com/"
+    page = BasketPage(browser, link)
+    page.open()
+    #Переходит в корзину по кнопке в шапке сайта
+    page.go_to_basket_page()
+    #Ожидаем, что в корзине нет товаров
+    #Ожидаем, что есть текст о том что корзина пуста
+    page.should_be_empty_basket() 
