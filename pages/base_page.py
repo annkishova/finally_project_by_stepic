@@ -1,7 +1,6 @@
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoAlertPresentException # в начале файла
-from selenium import webdriver
 import math
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
@@ -11,10 +10,9 @@ class BasePage():
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
         self.url = url
-        #self.browser.implicitly_wait(timeout)
+        self.browser.implicitly_wait(timeout)
 
     def open(self):
-        #link = f"http://selenium1py.pythonanywhere.com/{language}/"
         self.browser.get(self.url)
 
     def is_element_present(self, how, what):
@@ -65,3 +63,6 @@ class BasePage():
     def go_to_basket_page(self):
         basket = self.browser.find_element(*BasePageLocators.Basket_button)
         basket.click()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented probably unauthorised user"
