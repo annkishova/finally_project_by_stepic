@@ -24,7 +24,7 @@ def test_guest_can_add_product_to_basket(browser, link):
     page.solve_quiz_and_get_code()
     page.should_be_product_on_page() 
     page.should_be_checked_order_price()
-    page.should_not_be_success_message()
+    
 
 
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
